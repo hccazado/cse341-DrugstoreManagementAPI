@@ -1,0 +1,13 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "drugstore management api",
+      "description": "This API is the final project for BYU-I class CSE341 and is intended to manage a drugstore storing data from drugs, vendors, clients, and users",
+      "version": "1.0.0"
+    },
+    "host": "cse341-6f28.onrender.com",
+    "basePath": "/",
+    "schemes": [
+      "https"
+    ]
+}
