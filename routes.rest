@@ -4,10 +4,10 @@ GET http://localhost:5000/drugs
 
 
 ### Get drugs by commercial name
-GET http://localhost:5000/drugs/testing-commercial
+GET http://localhost:5000/drugs/cn/testing
 
 ### Get drugs by scientific name
-GET http://localhost:5000/drugs/testing-scientific
+GET http://localhost:5000/drugs/sn/testing-scientific
 
 
 ### Create a drug
@@ -15,7 +15,7 @@ POST http://localhost:5000/drugs HTTP/1.1
 content-type: application/json
 
 {
-"scientificName": "testing-purpose",
+"scientificName": "testing-scientific",
 "VendorId": "674eccc0118c49fc41d19032",
 "expireDate": "2024-09-10",
 "doses": "testing",
