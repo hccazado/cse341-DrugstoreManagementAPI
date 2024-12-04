@@ -39,3 +39,36 @@ content-type: application/json
 ### DELETE a drug
 DELETE http://localhost:5000/drugs/67507dbd12ebbffb8ea1c394 HTTP/1.1
 
+
+###Get Vendors
+GET http://localhost:5000/vendors
+
+###Create a new vendor
+POST http://localhost:5000/vendors HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "test",
+    "phone": "862-404-3000",
+    "address": "100 Bayer Boulevard Whippany, NJ 07981",
+    "rating": 5,
+    "itin": "123-45-6223"
+}
+
+###Get by name
+GET http://localhost:5000/vendors/findbyname/bayer
+
+###Get by itin
+GET http://localhost:5000/vendors/findbyitin/123-45-6789
+
+###Update Vendor
+PUT http://localhost:5000/vendors/6750892ef2c4184e3f4059be HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "new test",
+    "phone": "862-555-4026"
+}
+
+###Delete vendor
+DELETE http://localhost:5000/vendors/6750892ef2c4184e3f4059be HTTP/1.1
