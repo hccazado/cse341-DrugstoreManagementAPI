@@ -1,4 +1,5 @@
 const DrugsModel = require('../models/drugs');
+const utitlity = require('../middleware/utilities');
 
 const createDrug = async (req, res, next) => {
   try {
@@ -21,6 +22,12 @@ const createDrug = async (req, res, next) => {
 
 const findBySN = async (req, res, next) => {
   try {
+    if (!utitlity.validateMongoId(req.params.findbysn)) {
+      return next({
+        message: 'Must provide a valid drug id',
+        statusCode: 401,
+      });
+    }
     const SN = req.params.findbysn;
     const drugsBySn = await DrugsModel.find({ scientificName: SN });
     if (drugsBySn.length === 0) {
@@ -36,6 +43,12 @@ const findBySN = async (req, res, next) => {
 };
 const findByCN = async (req, res, next) => {
   try {
+    if (!utitlity.validateMongoId(req.params.findbysn)) {
+      return next({
+        message: 'Must provide a valid drug id',
+        statusCode: 401,
+      });
+    }
     const CN = req.params.findbycn;
     const drugsByCn = await DrugsModel.find({ commercialName: CN });
     if (drugsByCn.length === 0) {
@@ -68,6 +81,12 @@ const findAll = async (req, res, next) => {
 
 const updateDrug = async (req, res, next) => {
   try {
+    if (!utitlity.validateMongoId(req.params.findbysn)) {
+      return next({
+        message: 'Must provide a valid drug id',
+        statusCode: 401,
+      });
+    }
     const drugId = req.params.drugId;
     const updateDrug = await DrugsModel.findByIdAndUpdate(
       { _id: drugId },
@@ -91,6 +110,12 @@ const updateDrug = async (req, res, next) => {
 
 const deleteDrug = async (req, res, next) => {
   try {
+    if (!utitlity.validateMongoId(req.params.findbysn)) {
+      return next({
+        message: 'Must provide a valid drug id',
+        statusCode: 401,
+      });
+    }
     const drugId = req.params.drugId;
     const deleteDrug = await DrugsModel.findByIdAndDelete({ _id: drugId });
     if (deleteDrug.length === 0) {

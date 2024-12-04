@@ -3,8 +3,8 @@ const routes = express.Router();
 const controller = require('../controllers/drugs');
 const validator = require('../middleware/validatorDrugs');
 
-routes.get('/:findbycn', controller.findByCN);
-routes.get('/:findbysn', controller.findBySN);
+routes.get('/cn/:findbycn', controller.findByCN);
+routes.get('/sn/:findbysn', controller.findBySN);
 routes.get('/', controller.findAll);
 routes.put(
   '/:drugId',
