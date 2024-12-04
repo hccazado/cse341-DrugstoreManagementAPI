@@ -1,4 +1,44 @@
-//Localhost
+// LOCALHOST
+### Get all drugs
+GET http://localhost:5000/drugs
+
+
+### Get drugs by commercial name
+GET http://localhost:5000/drugs/testing-commercial
+
+### Get drugs by scientific name
+GET http://localhost:5000/drugs/testing-scientific
+
+
+### Create a drug
+POST http://localhost:5000/drugs HTTP/1.1
+content-type: application/json
+
+{
+"scientificName": "testing-purpose",
+"VendorId": "674eccc0118c49fc41d19032",
+"expireDate": "2024-09-10",
+"doses": "testing",
+"description": "we are testing",
+"commercialName": "testing"
+}
+
+
+### Update a drug
+PUT http://localhost:5000/drugs/674ee7d4c70aaca2e583e34c HTTP/1.1
+content-type: application/json
+
+{
+    "scientificName": "testing-purpose-updating-test",
+    "VendorId": "674eccc0118c49fc41d19032",
+    "expireDate": "testing",
+    "doses": "testing",
+    "description": "we are testing",
+    "commercialName": "testing"
+}
+### DELETE a drug
+DELETE http://localhost:5000/drugs/67507dbd12ebbffb8ea1c394 HTTP/1.1
+
 
 ###Get Vendors
 GET http://localhost:5000/vendors
