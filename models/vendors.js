@@ -7,9 +7,9 @@ const vendorSchema = new schema({
     address: {type: String},
     rating: {type: Number},
     itin: {type: String}
-},
-{
-    timestamps: true
-});
+    },
+    {
+        timestamps: true
+    });
 
 module.exports = mongoose.model("Vendor", vendorSchema);
