@@ -3,7 +3,7 @@
 GET http://localhost:5000/drugs
 
 ### Get drugs by id
-GET http://localhost:5000/drugs/67509e3e1672a388f3635f1c
+GET http://localhost:5000/drugs/674e9593f05fdd70065f4fb4
 
 ### Get drugs by commercial name
 GET http://localhost:5000/drugs/cn/tylenol

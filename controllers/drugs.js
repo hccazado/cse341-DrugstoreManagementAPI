@@ -78,6 +78,12 @@ const findByCTG = async (req, res, next) => {
 
 const findByDrugId = async (req, res, next) => {
   try {
+    if (!utitlity.validateMongoId(req.params.drugId)) {
+      return next({
+        message: 'Must provide a valid drug id',
+        statusCode: 401,
+      });
+    }
     const drugsId = req.params.drugId;
     const drugById = await DrugsModel.find({ _id: drugsId });
     if (drugById.length === 0) {
