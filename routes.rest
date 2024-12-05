@@ -72,3 +72,41 @@ Content-Type: application/json
 
 ###Delete vendor
 DELETE http://localhost:5000/vendors/6750892ef2c4184e3f4059be HTTP/1.1
+
+
+
+
+### Get all clients
+GET http://localhost:5000/clients
+
+
+### Get Client by phone
+GET http://localhost:5000/clients/findbyphone/55990160951
+
+### Get Client by SSID
+GET http://localhost:5000/clients/findbyssid/1887e325
+
+
+### Create a Client
+POST http://localhost:5000/clients HTTP/1.1
+content-type: application/json
+
+{
+    "client_name": "testName",
+    "client_phone": "12345678",
+    "client_address": "50 N W Temple St, Salt Lake City, UT 84150, United States"
+}
+
+
+### Update a Client
+PUT http://localhost:5000/clients/67523884f43fb9b9a88ef91e HTTP/1.1
+content-type: application/json
+
+{
+    "client_name": "testNameUp",
+    "client_phone": "112233445566",
+    "client_address": "4151 W Lake Ave, Glenview, IL 60025, United States"
+}
+
+### DELETE a Client
+DELETE http://localhost:5000/clients/67522e8950bc63f21d161ff0 HTTP/1.1
