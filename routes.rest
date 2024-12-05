@@ -2,13 +2,17 @@
 ### Get all drugs
 GET http://localhost:5000/drugs
 
+### Get drugs by id
+GET http://localhost:5000/drugs/674e9593f05fdd70065f4fb4
 
 ### Get drugs by commercial name
-GET http://localhost:5000/drugs/cn/testing
+GET http://localhost:5000/drugs/cn/tylenol
 
 ### Get drugs by scientific name
-GET http://localhost:5000/drugs/sn/testing-scientific
+GET http://localhost:5000/drugs/sn/montelukast
 
+### Get drugs by category
+GET http://localhost:5000/drugs/category/painkiller
 
 ### Create a drug
 POST http://localhost:5000/drugs HTTP/1.1
@@ -37,7 +41,7 @@ content-type: application/json
     "commercialName": "testing"
 }
 ### DELETE a drug
-DELETE http://localhost:5000/drugs/67507dbd12ebbffb8ea1c394 HTTP/1.1
+DELETE http://localhost:5000/drugs/67509e3e1672a388f3635f1c HTTP/1.1
 
 
 ###Get Vendors

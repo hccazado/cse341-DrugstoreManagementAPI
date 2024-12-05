@@ -5,6 +5,8 @@ const validator = require('../middleware/validatorDrugs');
 
 routes.get('/cn/:findbycn', controller.findByCN);
 routes.get('/sn/:findbysn', controller.findBySN);
+routes.get('/category/:category', controller.findByCTG);
+routes.get('/:drugId', controller.findByDrugId);
 routes.get('/', controller.findAll);
 routes.put(
   '/:drugId',
