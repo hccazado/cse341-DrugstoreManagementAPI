@@ -337,6 +337,30 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "rating": {
+                  "example": "any"
+                },
+                "itin": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
