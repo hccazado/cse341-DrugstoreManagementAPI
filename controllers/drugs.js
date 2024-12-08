@@ -1,5 +1,5 @@
 const DrugsModel = require('../models/drugs');
-const utitlity = require('../middleware/utilities');
+const utility = require('../middleware/utilities');
 
 const createDrug = async (req, res, next) => {
   try {
