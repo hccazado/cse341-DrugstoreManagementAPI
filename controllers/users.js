@@ -2,6 +2,16 @@ const User = require("../models/users");
 const utilities = require("../middleware/utilities");
 
 const controller = {
+    login: async (req, res, next)=>{
+    },
+    logout: async (req, res, next)=>{
+        req.logout(function(err){
+            if (err) {
+                return next(err);
+            }
+            res.redirect("/");
+        });
+    },
     createUser: async (req, res, next) => {
         const user = new User({
             name: req.body.name,
