@@ -29,19 +29,19 @@ content-type: application/json
 
 
 ### Update a drug
-PUT http://localhost:5000/drugs/674ee7d4c70aaca2e583e34c HTTP/1.1
+PUT http://localhost:5000/drugs/6756f05a21def6dfa3689896 HTTP/1.1
 content-type: application/json
 
 {
     "scientificName": "testing-purpose-updating-test",
     "VendorId": "674eccc0118c49fc41d19032",
-    "expireDate": "testing",
+    "expireDate": "2024-09-10",
     "doses": "testing",
     "description": "we are testing",
     "commercialName": "testing"
 }
 ### DELETE a drug
-DELETE http://localhost:5000/drugs/67509e3e1672a388f3635f1c HTTP/1.1
+DELETE http://localhost:5000/drugs/6756efdc6f38fa4b71c6681f HTTP/1.1
 
 
 ###Get Vendors

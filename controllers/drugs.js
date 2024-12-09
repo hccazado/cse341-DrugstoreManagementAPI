@@ -2,6 +2,7 @@ const DrugsModel = require('../models/drugs');
 const utility = require('../middleware/utilities');
 
 const createDrug = async (req, res, next) => {
+  //#swagger.tags=['Drugs']
   try {
     const newDrug = await DrugsModel.create(req.body);
     if (newDrug.length === 0) {
@@ -21,6 +22,7 @@ const createDrug = async (req, res, next) => {
 };
 
 const findBySN = async (req, res, next) => {
+  //#swagger.tags=['Drugs']
   try {
     const SN = req.params.findbysn
       .split('-')
@@ -39,6 +41,7 @@ const findBySN = async (req, res, next) => {
   }
 };
 const findByCN = async (req, res, next) => {
+  //#swagger.tags=['Drugs']
   try {
     const CN = req.params.findbycn
       .split('-')
@@ -58,6 +61,7 @@ const findByCN = async (req, res, next) => {
 };
 
 const findByCTG = async (req, res, next) => {
+  //#swagger.tags=['Drugs']
   try {
     const drugsCategory = req.params.category
       .split('-')
@@ -77,6 +81,7 @@ const findByCTG = async (req, res, next) => {
 };
 
 const findByDrugId = async (req, res, next) => {
+  //#swagger.tags=['Drugs']
   try {
     if (!utility.validateMongoId(req.params.drugId)) {
       return next({
@@ -99,6 +104,7 @@ const findByDrugId = async (req, res, next) => {
 };
 
 const findAll = async (req, res, next) => {
+  //#swagger.tags=['Drugs']
   try {
     const drugsCollection = await DrugsModel.find();
 
@@ -115,8 +121,9 @@ const findAll = async (req, res, next) => {
 };
 
 const updateDrug = async (req, res, next) => {
+  //#swagger.tags=['Drugs']
   try {
-    if (!utitlity.validateMongoId(req.params.drugId)) {
+    if (!utility.validateMongoId(req.params.drugId)) {
       return next({
         message: 'Must provide a valid drug id',
         statusCode: 401,
@@ -144,6 +151,7 @@ const updateDrug = async (req, res, next) => {
 };
 
 const deleteDrug = async (req, res, next) => {
+  //#swagger.tags=['Drugs']
   try {
     if (!utility.validateMongoId(req.params.drugId)) {
       return next({
