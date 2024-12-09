@@ -78,7 +78,7 @@ const findByCTG = async (req, res, next) => {
 
 const findByDrugId = async (req, res, next) => {
   try {
-    if (!utitlity.validateMongoId(req.params.drugId)) {
+    if (!utility.validateMongoId(req.params.drugId)) {
       return next({
         message: 'Must provide a valid drug id',
         statusCode: 401,
@@ -145,7 +145,7 @@ const updateDrug = async (req, res, next) => {
 
 const deleteDrug = async (req, res, next) => {
   try {
-    if (!utitlity.validateMongoId(req.params.drugId)) {
+    if (!utility.validateMongoId(req.params.drugId)) {
       return next({
         message: 'Must provide a valid drug id',
         statusCode: 401,
