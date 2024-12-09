@@ -9,19 +9,23 @@ routes.use('/drugs', require('./drugs'));
 routes.use('/vendors', require('./vendors'));
 routes.use('/users', require('./users'));
 routes.use('/store', require('./store'));
-routes.use('/api-docs', 
+routes.use(
+  '/api-docs',
   // #swagger.ignore = true
-  swaggerUi.serve, swaggerUi.setup(swaggerDocument)); 
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDocument)
+);
 
-routes.use("/github/callback", passport.authenticate('github', 
-  {
-    failureRedirect: '/api-docs', 
-    session: false
+routes.use(
+  '/github/callback',
+  passport.authenticate('github', {
+    failureRedirect: '/api-docs',
+    session: false,
   }),
   (req, res) => {
     // #swagger.ignore = true
     req.session.user = req.user;
-    res.redirect("/");
+    res.redirect('/');
   }
 );
 

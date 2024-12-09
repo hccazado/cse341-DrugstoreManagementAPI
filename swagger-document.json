@@ -7,80 +7,204 @@
   },
   "host": "cse341-6f28.onrender.com",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "paths": {
-    "/clients/findbyssid": {
+    "/clients/": {
       "get": {
+        "tags": ["Clients"],
         "description": "",
+        "produces": ["application/json"],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
-      }
-    },
-    "/clients/findbyphone": {
-      "get": {
+      },
+      "post": {
+        "tags": ["Clients"],
         "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/clients/{cliendId}": {
-      "put": {
-        "description": "",
+        "produces": ["application/json"],
         "parameters": [
           {
-            "name": "cliendId",
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "client_name": {
+                  "example": "any"
+                },
+                "client_phone": {
+                  "example": "any"
+                },
+                "client_address": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/clients/findbyssid/{ssid}": {
+      "get": {
+        "tags": ["Clients"],
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "ssid",
             "in": "path",
             "required": true,
             "type": "string"
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/clients/findbyphone/{phone}": {
+      "get": {
+        "tags": ["Clients"],
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/clients/{clientId}": {
+      "put": {
+        "tags": ["Clients"],
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           }
         }
       },
       "delete": {
+        "tags": ["Clients"],
         "description": "",
         "parameters": [
           {
-            "name": "cliendId",
+            "name": "clientId",
             "in": "path",
             "required": true,
             "type": "string"
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       }
     },
-    "/clients/": {
-      "post": {
-        "description": "",
+    "/drugs/": {
+      "get": {
+        "tags": ["Drugs"],
+        "description": "Path to get all the drugs in the database",
+        "produces": ["application/json"],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Drugs"],
+        "description": "Path to create a new drug in the database all the fields are required",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "commercialName": {
+                  "example": "any"
+                },
+                "scientificName": {
+                  "example": "any"
+                },
+                "VendorId": {
+                  "example": "any"
+                },
+                "expireDate": {
+                  "example": "any"
+                },
+                "doses": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       }
     },
     "/drugs/cn/{findbycn}": {
       "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Drugs"],
+        "description": "Path to find a drug by Commercial Name, for instance: Singulair Advanced ",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "findbycn",
@@ -101,10 +225,9 @@
     },
     "/drugs/sn/{findbysn}": {
       "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Drugs"],
+        "description": "Path to find a drug by Scientific Name, for instance: Acetaminophen",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "findbysn",
@@ -125,10 +248,9 @@
     },
     "/drugs/category/{category}": {
       "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Drugs"],
+        "description": "Path to find a drug by category, for instance: Painkiller",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "category",
@@ -149,10 +271,9 @@
     },
     "/drugs/{drugId}": {
       "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Drugs"],
+        "description": "Path to find a drug by Drug Id, use this Id for testing purpose 6751c4776936b274d170214e",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "drugId",
@@ -171,16 +292,42 @@
         }
       },
       "put": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Drugs"],
+        "description": "Path to modify a drug already exists on the database, an Id is required, use this for testing purposes 674ee7d4c70aaca2e583e34c",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "drugId",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "commercialName": {
+                  "example": "any"
+                },
+                "scientificName": {
+                  "example": "any"
+                },
+                "VendorId": {
+                  "example": "any"
+                },
+                "expireDate": {
+                  "example": "any"
+                },
+                "doses": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -193,10 +340,9 @@
         }
       },
       "delete": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Drugs"],
+        "description": "Path used to delete a drug on the database an Id is required, uses this one for testing purpose 6756f05a21def6dfa3689896",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "drugId",
@@ -204,36 +350,6 @@
             "required": true,
             "type": "string"
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      }
-    },
-    "/drugs/": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "produces": [
-          "application/json"
         ],
         "responses": {
           "200": {
@@ -247,6 +363,7 @@
     },
     "/vendors/findbyname/{name}": {
       "get": {
+        "tags": ["Vendors"],
         "description": "",
         "parameters": [
           {
@@ -265,6 +382,7 @@
     },
     "/vendors/findbyitin/{itin}": {
       "get": {
+        "tags": ["Vendors"],
         "description": "",
         "parameters": [
           {
@@ -283,6 +401,7 @@
     },
     "/vendors/": {
       "get": {
+        "tags": ["Vendors"],
         "description": "",
         "responses": {
           "200": {
@@ -291,6 +410,7 @@
         }
       },
       "post": {
+        "tags": ["Vendors"],
         "description": "",
         "parameters": [
           {
@@ -330,6 +450,7 @@
     },
     "/vendors/{id}": {
       "put": {
+        "tags": ["Vendors"],
         "description": "",
         "parameters": [
           {
@@ -337,30 +458,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "example": "any"
-                },
-                "phone": {
-                  "example": "any"
-                },
-                "address": {
-                  "example": "any"
-                },
-                "rating": {
-                  "example": "any"
-                },
-                "itin": {
-                  "example": "any"
-                }
-              }
-            }
           }
         ],
         "responses": {
@@ -373,6 +470,7 @@
         }
       },
       "delete": {
+        "tags": ["Vendors"],
         "description": "",
         "parameters": [
           {
