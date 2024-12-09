@@ -146,7 +146,7 @@
     "/drugs/": {
       "get": {
         "tags": ["Drugs"],
-        "description": "",
+        "description": "Path to get all the drugs in the database",
         "produces": ["application/json"],
         "responses": {
           "200": {
@@ -159,7 +159,7 @@
       },
       "post": {
         "tags": ["Drugs"],
-        "description": "",
+        "description": "Path to create a new drug in the database all the fields are required",
         "produces": ["application/json"],
         "parameters": [
           {
@@ -203,7 +203,7 @@
     "/drugs/cn/{findbycn}": {
       "get": {
         "tags": ["Drugs"],
-        "description": "",
+        "description": "Path to find a drug by Commercial Name, for instance: Singulair Advanced ",
         "produces": ["application/json"],
         "parameters": [
           {
@@ -226,7 +226,7 @@
     "/drugs/sn/{findbysn}": {
       "get": {
         "tags": ["Drugs"],
-        "description": "",
+        "description": "Path to find a drug by Scientific Name, for instance: Acetaminophen",
         "produces": ["application/json"],
         "parameters": [
           {
@@ -249,7 +249,7 @@
     "/drugs/category/{category}": {
       "get": {
         "tags": ["Drugs"],
-        "description": "",
+        "description": "Path to find a drug by category, for instance: Painkiller",
         "produces": ["application/json"],
         "parameters": [
           {
@@ -272,7 +272,7 @@
     "/drugs/{drugId}": {
       "get": {
         "tags": ["Drugs"],
-        "description": "",
+        "description": "Path to find a drug by Drug Id, use this Id for testing purpose 6751c4776936b274d170214e",
         "produces": ["application/json"],
         "parameters": [
           {
@@ -293,11 +293,11 @@
       },
       "put": {
         "tags": ["Drugs"],
-        "description": "",
+        "description": "Path to modify a drug already exists on the database, an Id is required, use this for testing purposes 674ee7d4c70aaca2e583e34c",
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
+            "name": "drugId",
             "in": "path",
             "required": true,
             "type": "string"
@@ -308,19 +308,22 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
+                "commercialName": {
                   "example": "any"
                 },
-                "phone": {
+                "scientificName": {
                   "example": "any"
                 },
-                "address": {
+                "VendorId": {
                   "example": "any"
                 },
-                "rating": {
+                "expireDate": {
                   "example": "any"
                 },
-                "itin": {
+                "doses": {
+                  "example": "any"
+                },
+                "description": {
                   "example": "any"
                 }
               }
@@ -338,7 +341,7 @@
       },
       "delete": {
         "tags": ["Drugs"],
-        "description": "",
+        "description": "Path used to delete a drug on the database an Id is required, uses this one for testing purpose 6756f05a21def6dfa3689896",
         "produces": ["application/json"],
         "parameters": [
           {
