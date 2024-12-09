@@ -5,9 +5,10 @@
     "description": "This API is the final project for BYU-I class CSE341 and is intended to manage a drugstore storing data from drugs, vendors, clients, and users",
     "version": "1.0.0"
   },
-  "host": "cse341-6f28.onrender.com",
+  "host": "localhost:5000",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": ["http", 
+    "https"],
   "paths": {
     "/clients/": {
       "get": {
@@ -114,6 +115,24 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "client_name": {
+                  "example": "any"
+                },
+                "client_phone": {
+                  "example": "any"
+                },
+                "client_address": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
