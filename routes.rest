@@ -18,14 +18,15 @@ GET http://localhost:5000/drugs/category/painkiller
 POST http://localhost:5000/drugs HTTP/1.1
 content-type: application/json
 
-{
-"scientificName": "testing-scientific",
-"VendorId": "674eccc0118c49fc41d19032",
-"expireDate": "2024-09-10",
-"doses": "testing",
-"description": "we are testing",
-"commercialName": "testing"
-}
+  {
+    "commercialName": "Celebrex",
+    "scientificName": "Celecoxib",
+    "expireDate": "2025-10-03",
+    "doses": "200 mg",
+    "description": "NSAID used to treat pain and inflammation.",
+    "category": "",
+    "VendorId": "674eccc0118c49fc41d19032"
+  }
 
 
 ### Update a drug

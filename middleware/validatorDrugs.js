@@ -34,6 +34,11 @@ validate.drugsRules = () => {
       .notEmpty()
       .isLength({ min: 10 })
       .withMessage('Please provide a valid description'),
+    body('category')
+      .exists({ checkFalsy: true })
+      .isLength({ min: 1 })
+      .notEmpty()
+      .withMessage('Please provide a valid category'),
   ];
 };
 
