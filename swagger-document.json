@@ -185,6 +185,9 @@
                 },
                 "description": {
                   "example": "any"
+                },
+                "category": {
+                  "example": "any"
                 }
               }
             }
@@ -324,6 +327,9 @@
                   "example": "any"
                 },
                 "description": {
+                  "example": "any"
+                },
+                "category": {
                   "example": "any"
                 }
               }
