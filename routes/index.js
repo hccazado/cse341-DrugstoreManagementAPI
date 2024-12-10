@@ -38,4 +38,8 @@ routes.get('/', (req, res) => {
   );
 });
 
+routes.get('*', (req, res) => {
+  res.send("404 That route doesn't exist");
+});
+
 module.exports = routes;
