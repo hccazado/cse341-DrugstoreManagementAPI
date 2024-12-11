@@ -33,13 +33,9 @@ routes.get('/', (req, res) => {
   // #swagger.ignore = true
   res.send(
     req.session.user !== undefined
-      ? `Welcome: ${req.session.user.displayName}`
+      ? `Welcome: ${req.session.user.userName}`
       : 'Logged out'
   );
-});
-
-routes.get('*', (req, res) => {
-  res.send("404 That route doesn't exist");
 });
 
 module.exports = routes;

@@ -21,7 +21,7 @@ const controller = {
       email: req.body.email,
       password: req.body.password, // Ensure password is hashed before saving
       phone: req.body.phone,
-      role: req.body.role,
+      role: "customer",
     });
     try {
       const doc = await user.save();
@@ -93,6 +93,34 @@ const controller = {
       return res.status(204).send();
     } catch (error) {
       return next(error);
+    }
+  },
+
+  findOrCreate: async (user) => {
+    //#swagger.tags=['Users']
+    const providerId = user.id;
+    const provider = user.provider;
+    const userName = user.username;
+    const email = user.email;
+    //console.log(user);
+    try {
+      const user = await User.findOne({ providerId: providerId });
+      if(!user){
+        const newUser = await User.create({
+          providerId: providerId,
+          provider: provider,
+          userName: userName,
+          email: email,
+          accessLevel: "customer"
+        });
+        return newUser;
+      }
+      else{
+        return user;
+      }
+      //return res.status(204).send();
+    } catch (error) {
+      throw new Error(error);
     }
   },
 };
