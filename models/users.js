@@ -1,16 +1,17 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-const userSchema = new schema({
-    clientId: {type: mongoose.Types.ObjectId, ref: "Client"},
-    email: {type: String},
-    provider: {type: String},
-    providerId: {type: String},
-    userName: {type: String},
-    accessLevel: ["customer", "admin", "store"],
-},
-{
-    timestamps: true
-});
+const userSchema = new schema(
+  {
+    provider: { type: String },
+    providerId: { type: String },
+    username: { type: String },
+    accessLevel: ['customer', 'admin', 'store'],
+    createdAt: { type: Date, default: Date.now },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model('User', userSchema);

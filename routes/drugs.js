@@ -2,7 +2,7 @@ const express = require('express');
 const routes = express.Router();
 const controller = require('../controllers/drugs');
 const validator = require('../middleware/validatorDrugs');
-const {authorizeAdmin} = require("../middleware/authenticate");
+const { authorizeAdmin } = require('../middleware/authenticate');
 
 routes.get('/cn/:findbycn', controller.findByCN);
 routes.get('/sn/:findbysn', controller.findBySN);
