@@ -11,6 +11,7 @@ routes.get("/findbyssid/:ssid", controller.findBySSID);
 routes.get("/findbyphone/:phone", controller.findByPhone);
 
 routes.post("/", 
+    isAuthenticated,
     validator.clientsValidationRules(),
     validator.checkValidation,
     controller.createClient);
