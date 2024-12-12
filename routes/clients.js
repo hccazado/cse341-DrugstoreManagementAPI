@@ -1,7 +1,8 @@
 const express = require("express");
 const routes = express.Router();
 const controller = require("../controllers/clients");
-const validator = require('../middleware/clientsValidator')
+const validator = require('../middleware/clientsValidator');
+const {isAuthenticated} = require("../middleware/authenticate");
 
 routes.get("/", controller.getAllClients);
 
@@ -15,11 +16,12 @@ routes.post("/",
     controller.createClient);
 
 routes.put("/:clientId", 
+    isAuthenticated,
     validator.clientsValidationRules(),
     validator.checkValidation,
     controller.updateClient);
 
-routes.delete("/:clientId", controller.deleteClient);
+routes.delete("/:clientId", isAuthenticated, controller.deleteClient);
 
 
 module.exports = routes;
