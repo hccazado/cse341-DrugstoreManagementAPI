@@ -10,6 +10,7 @@ const swaggerDocument = require('./swagger-document.json');
 const SQLiteStore = require('connect-sqlite3')(session);
 const passport = require('passport');
 const GitHubStrategy = require('passport-github2').Strategy;
+const user = require("./controllers/users");
 
 dotEnv.config();
 
@@ -34,9 +35,9 @@ passport.use(
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
       callbackURL: process.env.CALLBACK_URL,
     },
-    function (accessToken, refreshToken, profile, done) {
-      //user.findorcreate({githubId: profile.id})
-      return done(null, profile);
+    async function (accessToken, refreshToken, profile, done) {
+      const userData = await user.findOrCreate(profile);
+      return done(null, userData);
     }
   )
 );

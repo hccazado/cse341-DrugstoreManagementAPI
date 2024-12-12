@@ -39,7 +39,7 @@ content-type: application/json
     "expireDate": "2024-09-10",
     "doses": "testing",
     "description": "we are testing",
-    "commercialName": "testing"
+    "commercialName": "NSAID"
 }
 ### DELETE a drug
 DELETE http://localhost:5000/drugs/6756efdc6f38fa4b71c6681f HTTP/1.1

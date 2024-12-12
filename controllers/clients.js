@@ -44,7 +44,15 @@ const updateClient = async (req, res, next) => {
   try {
     const clientId = new ObjectId(req.params.clientId);
     const result = await clientsModel;
-    result.findOneAndUpdate({ _id: clientId }, req.body).then((result) => {
+    result.findOneAndUpdate({ _id: clientId }, 
+      { $set: {
+          client_name: req.body.client_name, 
+          client_phone: req.body.client_phone, 
+          client_address: req.body.client_address, 
+        }, 
+      }, 
+      {upsert: false,})
+    .then((result) => {
       if (!result) {
         res.send({ error: { status: 404, message: 'Client does not exist' } });
       }

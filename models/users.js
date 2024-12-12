@@ -4,9 +4,10 @@ const schema = mongoose.Schema;
 const userSchema = new schema({
     clientId: {type: mongoose.Types.ObjectId, ref: "Client"},
     email: {type: String},
-    username: {type: String},
+    provider: {type: String},
+    providerId: {type: String},
+    userName: {type: String},
     accessLevel: ["customer", "admin", "store"],
-    status: ["active", "inactive"]
 },
 {
     timestamps: true
