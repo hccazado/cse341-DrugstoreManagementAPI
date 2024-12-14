@@ -16,9 +16,10 @@ validate.storeValidationRules = () => {
       .withMessage('Please provide a valid drug id'),
 
       body('quantity')
-      .exists({ checkFalsy: true })
       .notEmpty()
-      .isLength({ min: 1 })
+      .exists({ checkFalsy: true })
+      .isInt()
+      .isLength({ min: 1, max: 100000 })
       .withMessage('Please provide a valid quantity'),
   ];
 };
