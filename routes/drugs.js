@@ -11,15 +11,15 @@ routes.get('/:drugId', controller.findByDrugId);
 routes.get('/', controller.findAll);
 routes.put(
   '/:drugId',
-  authorizeAdmin,
+
   validator.drugsRules(),
   validator.checkDrugsData,
   controller.updateDrug
 );
-routes.delete('/:drugId', authorizeAdmin, controller.deleteDrug);
+routes.delete('/:drugId', controller.deleteDrug);
 routes.post(
   '/',
-  authorizeAdmin,
+
   validator.drugsRules(),
   validator.checkDrugsData,
   controller.createDrug
