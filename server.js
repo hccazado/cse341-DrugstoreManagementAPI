@@ -23,7 +23,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     store: new SQLiteStore({ db: 'sessions.db', dir: './' }),
-    cookie: process.env.NODE_ENV == 'DEVELOPMENT' ? {} : { secure: true },
+    cookie: process.env.NODE_ENV == 'DEVELOPMENT' ? {httpOnly: true } : { httpOnly: true , secure: true },
   })
 );
 
