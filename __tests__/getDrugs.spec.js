@@ -149,7 +149,7 @@ describe('delete a drug', () => {
   it(
     'returns a status of 200 if the drug was deleted and a header of type application/json',
     async () => {
-      const res = await request(app).delete('/drugs/675d8536d2ab4494e3e8e416');
+      const res = await request(app).delete('/drugs/675d8c7f57f235ba5b755857');
       expect(res.statusCode).toBe(200);
       expect(res.header['content-type']).toBe(
         'application/json; charset=utf-8'
