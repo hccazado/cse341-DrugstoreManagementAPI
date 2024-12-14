@@ -13,6 +13,7 @@ const controller = {
     });
     try {
       const doc = await vendor.save();
+      res.setHeader('Content-type', 'application/json');
       res.status(200).json(doc);
     } catch (error) {
       return next(error);
@@ -43,6 +44,7 @@ const controller = {
       const doc = await Vendor.findOne({
         name: { $regex: name, $options: 'i' },
       });
+      res.setHeader('Content-type', 'application/json');
       return res.status(200).json(doc);
     } catch (error) {
       return next(error);
@@ -53,6 +55,7 @@ const controller = {
     const itin = req.params.itin;
     try {
       const doc = await Vendor.findOne({ itin: itin });
+      res.setHeader('Content-type', 'application/json');
       return res.status(200).json(doc);
     } catch (error) {
       return next(error);
@@ -62,6 +65,7 @@ const controller = {
     //#swagger.tags=['Vendors']
     try {
       const docs = await Vendor.find();
+      res.setHeader('Content-type', 'application/json');
       return res.status(200).json(docs);
     } catch (error) {
       return next(error);
