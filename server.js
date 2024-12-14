@@ -90,7 +90,7 @@ function connectDB() {
 
 const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, () => {
+module.exports = app.listen(PORT, () => {
   console.log('API listening on PORT: ' + PORT);
   connectDB();
 });
