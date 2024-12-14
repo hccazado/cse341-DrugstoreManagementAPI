@@ -13,7 +13,7 @@ validate.usersValidationRules = () => {
     body('provider')
       .exists({ checkFalsy: true })
       .notEmpty()
-      .isLength({ min: 7, max: 15 })
+      .isLength({ min: 4, max: 15 })
       .isNumeric()
       .withMessage('Please provide a valid provider.'),
 
