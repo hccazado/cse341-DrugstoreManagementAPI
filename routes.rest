@@ -86,7 +86,7 @@ GET http://localhost:5000/clients
 
 
 ### Get Client by phone
-GET http://localhost:5000/clients/findbyphone/55990160951
+GET http://localhost:5000/clients/findbyphone/55555666666
 
 ### Get Client by SSID
 GET http://localhost:5000/clients/findbyssid/1887e325
@@ -97,8 +97,8 @@ POST http://localhost:5000/clients HTTP/1.1
 content-type: application/json
 
 {
-    "client_name": "testName",
-    "client_phone": "12345678",
+    "client_name": "testName1",
+    "client_phone": "1223334444",
     "client_address": "50 N W Temple St, Salt Lake City, UT 84150, United States"
 }
 
@@ -114,4 +114,43 @@ content-type: application/json
 }
 
 ### DELETE a Client
-DELETE http://localhost:5000/clients/67522e8950bc63f21d161ff0 HTTP/1.1
+DELETE http://localhost:5000/clients/675cfc27a6ee233067aa244a HTTP/1.1
+
+
+
+// Store Routes
+
+### Get all orders
+GET http://localhost:5000/store/
+
+
+### Get Order by Id
+GET http://localhost:5000/store/675da0478a4b2e4d7eaff2ff
+
+### Create Order
+POST http://localhost:5000/store HTTP/1.1
+content-type: application/json
+
+{
+    "client_id": "675d8581a8f043243f3178a9",
+    "drugId": "6757a90899dcecd4a023ca54",
+    "quantity": "5"
+}
+
+
+### Update a Order
+PUT http://localhost:5000/store/675da0478a4b2e4d7eaff2ff HTTP/1.1
+content-type: application/json
+
+{
+    "client_id": "675da5582245fce6da39314a",
+    "drugId": "675d820a02f73906e7426e41",
+    "quantity": "5"
+}
+
+### DELETE a Order
+DELETE http://localhost:5000/store/675da0144a29a8c5e1e4d0d5 HTTP/1.1
+
+
+### Send Order
+GET http://localhost:5000/store/send/675da0478a4b2e4d7eaff2ff
