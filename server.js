@@ -15,6 +15,7 @@ const userController = require('./controllers/users');
 dotEnv.config();
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(
   session({
@@ -76,10 +77,15 @@ process.on('uncaughtException', (error, origin) => {
   console.log(`caught exception: ${error}\nException origin: ${origin}`);
 });
 
+const PORT = process.env.PORT || 8080;
+
 function connectDB() {
   db.mongoose
     .connect(db.url)
     .then(() => {
+      app.listen(PORT, () => {
+        console.log('API listening on PORT: ' + PORT);
+      });
       console.log('MongoDB connected');
     })
     .catch((error) => {
@@ -88,9 +94,6 @@ function connectDB() {
     });
 }
 
-const PORT = process.env.PORT || 8080;
+connectDB();
 
-module.exports = app.listen(PORT, () => {
-  console.log('API listening on PORT: ' + PORT);
-  connectDB();
-});
+module.exports = app;
