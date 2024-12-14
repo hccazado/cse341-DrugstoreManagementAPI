@@ -8,12 +8,11 @@ const getAllClients = async (req, res, next) => {
     const result = await clientsModel.find();
     if (result.length === 0) {
       res.setHeader('Content-Type', 'application/json');
-      res.status(400).json('There are not any client');
+      res.send({ error: { status: 404, message: 'There are not any client' } });
     }
     res.setHeader('Content-type', 'application/json');
     res.status(200).json(result);
   } catch (error) {
-    console.log(error.message);
     next(error);
   }
 };
@@ -34,7 +33,6 @@ const createClient = async (req, res, next) => {
       res.status(200).json(result);
     }
   } catch (error) {
-    console.log(error.message);
     next(error);
   }
 };
@@ -62,7 +60,6 @@ const updateClient = async (req, res, next) => {
       });
     });
   } catch (error) {
-    console.log(error.message);
     next(error);
   }
 };
@@ -81,12 +78,14 @@ const findByPhone = async (req, res, next) => {
     }
     const result = await clientsModel.findOne({ client_phone: phone });
     if (!result) {
-      res.send({ error: { status: 404, message: 'Client does not exist' } });
+      return res.status(404).json({
+        status: 404,
+        message: 'Client does not exist.',
+      });
     }
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(result);
   } catch (error) {
-    console.log(error.message);
     next(error);
   }
 };
@@ -105,7 +104,10 @@ const findBySSID = async (req, res, next) => {
     }
     const result = await clientsModel.findOne({ client_ssid: ssid });
     if (!result) {
-      res.send({ error: { status: 404, message: 'Client does not exist' } });
+      return res.status(404).json({
+        status: 404,
+        message: 'Client does not exist.',
+      });
     }
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(result);
@@ -121,7 +123,10 @@ const deleteClient = async (req, res, next) => {
     const clientId = new ObjectId(req.params.clientId);
     const result = await clientsModel.findOneAndDelete({ _id: clientId });
     if (!result) {
-      res.send({ error: { status: 400, message: 'Client does not exist' } });
+      return res.status(404).json({
+        status: 404,
+        message: 'Client does not exist.',
+      });
     }
     res.send({ json: { status: 200, message: 'Client Deleted' } });
   } catch (error) {
