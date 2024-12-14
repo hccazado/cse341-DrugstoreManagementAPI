@@ -18,9 +18,9 @@ routes.get(
 );
 routes.get('/:id', controller.findById);
 routes.get('/', controller.getAll);
-routes.delete('/', isAuthenticated, controller.deleteUser);
+routes.delete('/:id', isAuthenticated, controller.deleteUser);
 routes.put(
-  '/',
+  '/:id',
   isAuthenticated,
   validatorUser.usersValidationRules(),
   validatorUser.checkValidation,
