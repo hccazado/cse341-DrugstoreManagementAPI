@@ -3,7 +3,7 @@ const routes = express.Router();
 const controller = require('../controllers/users');
 const passport = require('passport');
 const validatorUser = require('../middleware/validatorUsers');
-const { authorizeAdmin } = require('../middleware/authenticate');
+const { authorizeAdmin, isAuthenticated } = require('../middleware/authenticate');
 
 routes.get(
   '/login',
@@ -18,10 +18,10 @@ routes.get(
 );
 routes.get('/:id', controller.findById);
 routes.get('/', controller.getAll);
-routes.delete('/', authorizeAdmin, controller.deleteUser);
+routes.delete('/', isAuthenticated, controller.deleteUser);
 routes.put(
   '/',
-  authorizeAdmin,
+  isAuthenticated,
   validatorUser.usersValidationRules(),
   validatorUser.checkValidation,
   controller.updateUser
@@ -29,7 +29,7 @@ routes.put(
 
 routes.post(
   '/',
-  authorizeAdmin,
+  isAuthenticated,
   validatorUser.usersValidationRules(),
   validatorUser.checkValidation,
   controller.createUser
