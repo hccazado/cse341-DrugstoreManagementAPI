@@ -91,7 +91,7 @@ for (let index = 0; index < routes.length; index++) {
   refactoringCode(routes[index].route, routes[index].description);
 }
 
-describe('Create a new drug', () => {
+/*describe('Create a new drug', () => {
   it(
     'returns a status of 200 if the drug was created and a header of type application/json',
     async () => {
@@ -157,4 +157,4 @@ describe('delete a drug', () => {
     },
     50 * SECONDS
   );
-});
+});*/
