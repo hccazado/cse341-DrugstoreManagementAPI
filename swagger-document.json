@@ -7,33 +7,26 @@
   },
   "host": "cse341-6f28.onrender.com",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "paths": {
     "/clients/": {
       "get": {
-        "tags": [
-          "Clients"
-        ],
+        "tags": ["Clients"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       },
       "post": {
-        "tags": [
-          "Clients"
-        ],
+        "tags": ["Clients"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "body",
@@ -58,9 +51,6 @@
           "200": {
             "description": "OK"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "422": {
             "description": "Unprocessable Entity"
           }
@@ -69,13 +59,9 @@
     },
     "/clients/findbyssid/{ssid}": {
       "get": {
-        "tags": [
-          "Clients"
-        ],
+        "tags": ["Clients"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "ssid",
@@ -90,22 +76,15 @@
           },
           "400": {
             "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
           }
         }
       }
     },
     "/clients/findbyphone/{phone}": {
       "get": {
-        "tags": [
-          "Clients"
-        ],
+        "tags": ["Clients"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "phone",
@@ -120,22 +99,15 @@
           },
           "400": {
             "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
           }
         }
       }
     },
     "/clients/{clientId}": {
       "put": {
-        "tags": [
-          "Clients"
-        ],
+        "tags": ["Clients"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "clientId",
@@ -166,18 +138,13 @@
           "200": {
             "description": "OK"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "422": {
             "description": "Unprocessable Entity"
           }
         }
       },
       "delete": {
-        "tags": [
-          "Clients"
-        ],
+        "tags": ["Clients"],
         "description": "",
         "parameters": [
           {
@@ -190,25 +157,75 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/drugs/": {
+      "get": {
+        "tags": ["Drugs"],
+        "description": "Path to get all the drugs in the database",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK"
           },
-          "401": {
-            "description": "Unauthorized"
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Drugs"],
+        "description": "Path to create a new drug in the database all the fields are required",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "commercialName": {
+                  "example": "any"
+                },
+                "scientificName": {
+                  "example": "any"
+                },
+                "VendorId": {
+                  "example": "any"
+                },
+                "expireDate": {
+                  "example": "any"
+                },
+                "doses": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "category": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           },
-          "404": {
-            "description": "Not Found"
+          "400": {
+            "description": "Bad Request"
           }
         }
       }
     },
     "/drugs/cn/{findbycn}": {
       "get": {
-        "tags": [
-          "Drugs"
-        ],
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Drugs"],
+        "description": "Path to find a drug by Commercial Name, for instance: Singulair Advanced ",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "findbycn",
@@ -229,13 +246,9 @@
     },
     "/drugs/sn/{findbysn}": {
       "get": {
-        "tags": [
-          "Drugs"
-        ],
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Drugs"],
+        "description": "Path to find a drug by Scientific Name, for instance: Acetaminophen",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "findbysn",
@@ -256,13 +269,9 @@
     },
     "/drugs/category/{category}": {
       "get": {
-        "tags": [
-          "Drugs"
-        ],
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Drugs"],
+        "description": "Path to find a drug by category, for instance: Painkiller",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "category",
@@ -283,13 +292,9 @@
     },
     "/drugs/{drugId}": {
       "get": {
-        "tags": [
-          "Drugs"
-        ],
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Drugs"],
+        "description": "Path to find a drug by Drug Id, use this Id for testing purpose 6751c4776936b274d170214e",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "drugId",
@@ -308,13 +313,60 @@
         }
       },
       "put": {
-        "tags": [
-          "Drugs"
+        "tags": ["Drugs"],
+        "description": "Path to modify a drug already exists on the database, an Id is required, use this for testing purposes 674ee7d4c70aaca2e583e34c",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "drugId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "commercialName": {
+                  "example": "any"
+                },
+                "scientificName": {
+                  "example": "any"
+                },
+                "VendorId": {
+                  "example": "any"
+                },
+                "expireDate": {
+                  "example": "any"
+                },
+                "doses": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "category": {
+                  "example": "any"
+                }
+              }
+            }
+          }
         ],
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Drugs"],
+        "description": "Path used to delete a drug on the database an Id is required, uses this one for testing purpose 6756f05a21def6dfa3689896",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "drugId",
@@ -329,89 +381,14 @@
           },
           "400": {
             "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Drugs"
-        ],
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "drugId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          }
-        }
-      }
-    },
-    "/drugs/": {
-      "get": {
-        "tags": [
-          "Drugs"
-        ],
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Drugs"
-        ],
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
           }
         }
       }
     },
     "/vendors/findbyname/{name}": {
       "get": {
-        "tags": [
-          "Vendors"
-        ],
+        "tags": ["Vendors"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "name",
@@ -429,13 +406,8 @@
     },
     "/vendors/findbyitin/{itin}": {
       "get": {
-        "tags": [
-          "Vendors"
-        ],
+        "tags": ["Vendors"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "itin",
@@ -453,13 +425,8 @@
     },
     "/vendors/": {
       "get": {
-        "tags": [
-          "Vendors"
-        ],
+        "tags": ["Vendors"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -467,13 +434,8 @@
         }
       },
       "post": {
-        "tags": [
-          "Vendors"
-        ],
+        "tags": ["Vendors"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "body",
@@ -504,9 +466,6 @@
           "200": {
             "description": "OK"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "412": {
             "description": "Precondition Failed"
           }
@@ -515,9 +474,7 @@
     },
     "/vendors/{id}": {
       "put": {
-        "tags": [
-          "Vendors"
-        ],
+        "tags": ["Vendors"],
         "description": "",
         "parameters": [
           {
@@ -530,9 +487,6 @@
         "responses": {
           "204": {
             "description": "No Content"
-          },
-          "401": {
-            "description": "Unauthorized"
           },
           "412": {
             "description": "Precondition Failed"
@@ -540,9 +494,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Vendors"
-        ],
+        "tags": ["Vendors"],
         "description": "",
         "parameters": [
           {
@@ -555,18 +507,14 @@
         "responses": {
           "204": {
             "description": "No Content"
-          },
-          "401": {
-            "description": "Unauthorized"
           }
         }
       }
     },
+
     "/users/{id}": {
       "get": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "description": "",
         "parameters": [
           {
@@ -581,11 +529,20 @@
             "description": "OK"
           }
         }
+      }
+    },
+    "/users/": {
+      "get": {
+        "tags": ["Users"],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       },
       "delete": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "description": "",
         "parameters": [
           {
@@ -605,9 +562,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "description": "",
         "parameters": [
           {
@@ -615,6 +570,27 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "provider": {
+                  "example": "any"
+                },
+                "providerId": {
+                  "example": "any"
+                },
+                "username": {
+                  "example": "any"
+                },
+                "accessLevel": {
+                  "example": "customer"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -628,24 +604,9 @@
             "description": "Unprocessable Entity"
           }
         }
-      }
-    },
-    "/users/": {
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
       },
       "post": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "description": "",
         "parameters": [
           {
@@ -654,22 +615,25 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id": {
+                "provider": {
                   "example": "any"
                 },
-                "provider": {
+                "providerId": {
                   "example": "any"
                 },
                 "username": {
                   "example": "any"
+                },
+                "accessLevel": {
+                  "example": "customer"
                 }
               }
             }
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "No Content"
           },
           "401": {
             "description": "Unauthorized"
