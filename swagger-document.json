@@ -563,7 +563,7 @@
       },
       "put": {
         "tags": ["Users"],
-        "description": "path to update an user on the database a id is required",
+        "description": "",
         "parameters": [
           {
             "name": "id",
