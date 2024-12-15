@@ -563,7 +563,7 @@
       },
       "put": {
         "tags": ["Users"],
-        "description": "",
+        "description": "path to update an user on the database a id is required",
         "parameters": [
           {
             "name": "id",
@@ -646,13 +646,9 @@
     },
     "/store/": {
       "get": {
-        "tags": [
-          "Store"
-        ],
+        "tags": ["Store"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -663,13 +659,9 @@
         }
       },
       "post": {
-        "tags": [
-          "Store"
-        ],
+        "tags": ["Store"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "body",
@@ -705,13 +697,9 @@
     },
     "/store/{orderId}": {
       "get": {
-        "tags": [
-          "Store"
-        ],
+        "tags": ["Store"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "orderId",
@@ -727,13 +715,9 @@
         }
       },
       "put": {
-        "tags": [
-          "Store"
-        ],
+        "tags": ["Store"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "orderId",
@@ -773,9 +757,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Store"
-        ],
+        "tags": ["Store"],
         "description": "",
         "parameters": [
           {
@@ -797,13 +779,9 @@
     },
     "/store/send/{orderId}": {
       "get": {
-        "tags": [
-          "Store"
-        ],
+        "tags": ["Store"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "orderId",
