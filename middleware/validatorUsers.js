@@ -7,14 +7,14 @@ validate.usersValidationRules = () => {
     body('providerId')
       .exists({ checkFalsy: true })
       .notEmpty()
+      .isNumeric()
       .isLength({ min: 1 })
       .withMessage('Please provide a valid provider id'),
 
     body('provider')
       .exists({ checkFalsy: true })
       .notEmpty()
-      .isLength({ min: 7, max: 15 })
-      .isNumeric()
+      .isLength({ min: 4, max: 15 })
       .withMessage('Please provide a valid provider.'),
 
     body('userName')
