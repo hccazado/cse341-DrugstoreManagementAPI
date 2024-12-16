@@ -17,7 +17,7 @@ validate.usersValidationRules = () => {
       .isLength({ min: 4, max: 15 })
       .withMessage('Please provide a valid provider.'),
 
-    body('userName')
+    body('username')
       .exists({ checkFalsy: true })
       .notEmpty()
       .isLength({ min: 1 })

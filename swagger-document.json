@@ -529,17 +529,6 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/users/": {
-      "get": {
-        "tags": ["Users"],
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
       },
       "delete": {
         "tags": ["Users"],
@@ -602,6 +591,17 @@
           },
           "422": {
             "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/users/": {
+      "get": {
+        "tags": ["Users"],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       },
