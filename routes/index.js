@@ -29,6 +29,18 @@ routes.use(
   }
 );
 
+routes.use('/google/callback', 
+  passport.authenticate('google', {
+    failureRedirect: '/api-docs',
+    session: false,
+  }),
+  (req, res)=>{
+    //#swagger.ignore = true
+    req.session.user = req.user;
+    res.redirect('/');
+  }
+);
+
 routes.get('/', (req, res) => {
   // #swagger.ignore = true
   res.send(
