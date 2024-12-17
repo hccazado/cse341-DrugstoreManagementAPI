@@ -87,7 +87,8 @@ const controller = {
     //#swagger.tags=['Users']
     const providerId = user.id;
     const provider = user.provider;
-    const userName = user.username;
+    const userName = user.provider =='github'? user.username: user.given_name + user.family_name;
+    
     //console.log(user);
     try {
       const user = await User.findOne({ providerId: providerId });

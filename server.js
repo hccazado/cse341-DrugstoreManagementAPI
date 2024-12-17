@@ -10,6 +10,7 @@ const swaggerDocument = require('./swagger-document.json');
 const SQLiteStore = require('connect-sqlite3')(session);
 const passport = require('passport');
 const GitHubStrategy = require('passport-github2').Strategy;
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
 const userController = require('./controllers/users');
 
 dotEnv.config();
@@ -37,6 +38,19 @@ passport.use(
     },
     async function (accessToken, refreshToken, profile, done) {
       const userData = await userController.findOrCreate(profile);
+      return done(null, userData);
+    }
+  )
+);
+
+passport.use( new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: process.env.GOOGLE_CB_URL,
+    scope:['profile']
+    },
+    async function (accessToken, refreshToken, profile, done) {
+      const userData = await userController.findOrCreate(profile, 'google');
       return done(null, userData);
     }
   )

@@ -5,8 +5,15 @@ const passport = require('passport');
 const validatorUser = require('../middleware/validatorUsers');
 const { authorizeAdmin, isAuthenticated } = require('../middleware/authenticate');
 
+
 routes.get(
-  '/login',
+  '/login/google',
+  // #swagger.ignore = true
+  passport.authenticate('google'),
+  controller.login
+);
+routes.get(
+  '/login/github',
   // #swagger.ignore = true
   passport.authenticate('github'),
   controller.login
