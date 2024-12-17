@@ -7,13 +7,13 @@ const { authorizeAdmin, isAuthenticated } = require('../middleware/authenticate'
 
 
 routes.get(
-  '/google',
+  '/login/google',
   // #swagger.ignore = true
   passport.authenticate('google'),
   controller.login
 );
 routes.get(
-  '/github',
+  '/login/github',
   // #swagger.ignore = true
   passport.authenticate('github'),
   controller.login

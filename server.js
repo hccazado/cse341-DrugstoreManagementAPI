@@ -47,7 +47,7 @@ passport.use( new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: process.env.GOOGLE_CB_URL,
-    scope:['profile']
+    scope:['profile','openid']
     },
     async function (accessToken, refreshToken, profile, done) {
       const userData = await userController.findOrCreate(profile, 'google');

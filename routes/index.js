@@ -16,8 +16,7 @@ routes.use(
   swaggerUi.setup(swaggerDocument)
 );
 
-routes.use(
-  '/github/callback',
+routes.use('/github/callback',
   passport.authenticate('github', {
     failureRedirect: '/api-docs',
     session: false,
