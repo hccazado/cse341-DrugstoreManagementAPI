@@ -2,12 +2,12 @@ const app = require('../server');
 const request = require('supertest');
 const SECONDS = 10000;
 const vendor = {
-  _id: "675067f271e5462284991729",
-  name: "Bayer",
-  phone: "862-404-3000",
-  address: "100 Bayer Boulevard Whippany, NJ 07981",
+  _id: "6754799488e167af08b597c0",
+  name: "Johnson & Johnson",
+  phone: "800-876-4596",
+  address: "7500 Centurion Parkway North Jacksonville, Florida 32256",
   rating: 5,
-  itin: "123-45-6789",
+  itin: "123-45-9786",
 };
 
 describe('Testing vendors routes', () => {

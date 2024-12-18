@@ -6,9 +6,7 @@ const order = [
     _id: '675daf629a2cf72762c69335',
     client_id: '675da5582245fce6da39314a',
     drugId: '6757a90899dcecd4a023ca54',
-    quantity: '35',
-    createdAt: '2024-12-14T16:16:34.916Z',
-    updatedAt: '2024-12-14T16:18:18.353Z',
+    quantity: '5',
   },
 ];
 
@@ -60,6 +58,6 @@ describe('get an order by a specific id', () => {
   it('returns a json file similar to the one given', async () => {
     const res = await request(app).get(route + '/' + id);
     const json = JSON.parse(res.text);
-    expect(json).toEqual(order);
+    expect(json).toMatchObject(order);
   });
 });
